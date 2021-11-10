@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" class="h-100">
+    <head th:replace="fragments/layout :: head(title='Playlist service')">
+        <meta charset="UTF-8" />
+        <title>Playlist service</title>
+    </head>
+    <body class="d-flex h-100 text-center text-white bg-dark">
+        <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+            <header th:replace="fragments/layout :: header(text='Twitterlike')"></header>
+            <main class="form-signin">
+                <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
+                <form action="/login" th:object="${user}" method="POST" enctype="utf8">
+                    <div class="form-floating">
+                        <input type="text" class="form-control" placeholder="Enter username" name="username" id="username"/>
+                        <label for="username">Username</label>
+                    </div>
+                    <div class="form-floating">
+                        <input type="password" class="form-control" placeholder="Enter password" name="password" id="password"/>
+                        <label for="password">Password</label>
+                    </div>
+                    <button class="w-100 mt-4 btn btn-lg btn-primary" type="submit">Sign in</button>
+                </form>
+            </main>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" class="h-100">
+<head th:replace="fragments/layout :: head(title='Twitterlike')">
+    <meta charset="UTF-8" />
+    <title>Playlist service</title>
+</head>
+<body class="d-flex h-100 text-center text-white bg-dark">
+<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+    <header th:replace="fragments/layout :: header(text='Twitterlike')"></header>
+    <form method="POST" th:action="@{/tweets}" action="/tweets">
+        <div class="form-group">
+            <input type="text" name="content" placeholder="What's happening?"/>
+            <input class="btn btn-primary" type="submit" value="Tweet"/>
+        </div>
+    </form>
+    <ul>
+        <li th:each="tweet : ${tweets}">
+            <span th:text="${tweet.user.username + ': ' + tweet.content}">tweet</span>
+        </li>
+    </ul>
+</div>
+</body>
+</html>
